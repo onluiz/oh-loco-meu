@@ -85,7 +85,5 @@ module.exports = {
   TYPES,
   get,
   getAll,
-  getTest() {
-    console.log('HI');
-  }
+  teste: 'hi',
 };

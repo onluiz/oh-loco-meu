@@ -55,6 +55,7 @@ const _get = (props, cb) => {
 };
 
 const get = (locales, types, pathPrefix) => {
+  console.log('oh-loco-meu -> get -> locales, types, pathPrefix', locales, types, pathPrefix);
   locales.forEach(locale => {
     types.forEach(type => {
       const format = type === 'json' ? FORMAT : null;
@@ -84,4 +85,7 @@ module.exports = {
   TYPES,
   get,
   getAll,
+  getTest() {
+    console.log('HI');
+  }
 };

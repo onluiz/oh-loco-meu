@@ -46,6 +46,7 @@ const _get = (props, cb) => {
       props,
       data: response.data,
     }
+    console.log('oh-loco-meu -> result', result);
     cb && cb(result);
   });
 };

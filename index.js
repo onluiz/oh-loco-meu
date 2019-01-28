@@ -9,9 +9,10 @@ const KEY = process.env.LOCO_HTML_KEY;
 const FORMAT='script';
 
 const log = (message) => {
-  if (process.env.NODE_ENV && process.env.NODE_ENV.toLowerCase() !== 'production') {
-    console.log(message);
-  }
+  // if (process.env.NODE_ENV && process.env.NODE_ENV.toLowerCase() !== 'production') {
+  //   console.log(message);
+  // }
+  console.log(message);
 };
 
 const writeFile = result => {
@@ -41,14 +42,16 @@ const _get = (props, cb) => {
 
   log(`Getting i18n info for ${props.locale.global}.${props.type}`);
 
-  axios.get(url).then(response => {
-    const result = {
-      props,
-      data: response.data,
-    }
-    console.log('oh-loco-meu -> result', result);
-    cb && cb(result);
-  });
+  axios.get(url)
+    .then(response => {
+      const result = {
+        props,
+        data: response.data,
+      }
+      console.log('oh-loco-meu -> result', result);
+      cb && cb(result);
+    })
+    .catch(error => console.log('oh-loco-menu -> error', error));
 };
 
 const get = (locales, types, pathPrefix) => {
